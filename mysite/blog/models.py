@@ -1,8 +1,16 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.query import QuerySet
 from django.utils import timezone
 
-class Post(models.Model):
+class PublishedManager(models.Manager):
+    def get_queryset(self) -> QuerySet:
+        return (
+            super().get_queryset().filter(status=Post.Status.PUBLISHED)
+        )
+
+
+class Post(models.Model): # model fields
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
@@ -20,6 +28,9 @@ class Post(models.Model):
     status = models.CharField(
         max_length=2, choices=Status, default=Status.DRAFT
     )
+
+    objects = models.Manager # The default manager
+    published = PublishedManager() # Our custom manager
 
     class Meta:
         ordering = ['-publish']
