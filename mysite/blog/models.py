@@ -29,8 +29,8 @@ class Post(models.Model): # model fields
         max_length=2, choices=Status, default=Status.DRAFT
     )
 
-    objects = models.Manager # The default manager
-    published = PublishedManager() # Our custom manager
+    objects = models.Manager # The default manager.
+    published = PublishedManager() # Our custom manager.
 
     class Meta:
         ordering = ['-publish']
