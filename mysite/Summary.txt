@@ -1,0 +1,2 @@
+In here contains a breakdown of every line of code we entered.
+From the files one by one and also explaining why they work and how they work to assist me/others to fully understand everything
