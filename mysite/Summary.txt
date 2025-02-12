@@ -4,133 +4,20 @@ From the files one by one and also explaining why they work and how they work to
 
 Got it! Let's refresh your Django knowledge. We'll start with some Django fundamentals and a simple example.
 
----
-
 What is Django?
 Django is a high-level Python web framework that helps developers build web applications quickly and efficiently. It follows the Model-View-Template (MVT) architectural pattern.
-
----
 
 Example 1: Setting Up a Django Project
 Here’s an example of creating a Django project and app.
 
 Step 1: Install Django
-bash
+
 pip install django
 
 - pip: Python's package manager.
 - install django: Installs Django on your system.
 
  Step 2: Start a New Project
-bash
-django-admin startproject myproject
-
-- django-admin: A command-line tool to manage Django projects.
-- startproject myproject: Creates a new Django project named myproject.
-
----
-
- Project Structure
-After running the command, you'll see a structure like this:
-
-myproject/
-    manage.py
-    myproject/
-        __init__.py
-        settings.py
-        urls.py
-        asgi.py
-        wsgi.py
-
-
-Explanation:
-1. manage.py: A script to manage the project (run the server, create apps, etc.).
-2. settings.py: Configuration file for your project (e.g., database, installed apps).
-3. urls.py: Defines the URL routes for your project.
-4. asgi.py and wsgi.py: Configuration for serving the project on a server.
-
----
-
- Example 2: Create a Django App
-bash
-python manage.py startapp myapp
-
-- startapp myapp: Creates a new app called myapp.
-
- App Structure
-
-myapp/
-    migrations/
-    __init__.py
-    admin.py
-    apps.py
-    models.py
-    tests.py
-    views.py
-
-
-Key Files:
-1. models.py: Define the structure of your database.
-2. views.py: Handle the logic for what happens when a user visits a URL.
-3. admin.py: Register models to appear in the Django admin interface.
-
----
-
- Example 3: Add App to the Project
-In settings.py, add the app to INSTALLED_APPS:
-python
-INSTALLED_APPS = [
-    ...
-    'myapp',
-]
-
-
----
-
- Example 4: Define a Simple View
-In views.py of myapp:
-python
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse("Hello, Django!")
-
-
----
-
- Example 5: Map URL to the View
-In myapp/urls.py:
-python
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.home, name='home'),
-]
-
-
-In myproject/urls.py, include the app's URLs:
-python
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),
-]
-
-
----
-
- Run the Development Server
-bash
-python manage.py runserver
-
-Visit http://127.0.0.1:8000/, and you’ll see:
-
-Hello, Django!
-
-
 
  Chapter 1: Creating Your First Django Project  
 
