@@ -5,7 +5,8 @@ From the files one by one and also explaining why they work and how they work to
 Got it! Let's refresh your Django knowledge. We'll start with some Django fundamentals and a simple example.
 
 What is Django?
-Django is a high-level Python web framework that helps developers build web applications quickly and efficiently. It follows the Model-View-Template (MVT) architectural pattern.
+Django is a high-level Python web framework that helps developers build web applications quickly and efficiently.
+It follows the Model-View-Template (MVT) architectural pattern.
 
 Example 1: Setting Up a Django Project
 Here’s an example of creating a Django project and app.
@@ -13,7 +14,6 @@ Here’s an example of creating a Django project and app.
 Step 1: Install Django
 
 pip install django
-
 - pip: Python's package manager.
 - install django: Installs Django on your system.
 
@@ -21,7 +21,8 @@ pip install django
 
  Chapter 1: Creating Your First Django Project  
 
-This chapter introduces Django by guiding you through building a blog application, covering essential functionalities such as content management, commenting, post sharing, and search.  
+This chapter introduces Django by guiding you through building a blog application, covering essential functionalities such as content management,
+ commenting, post sharing, and search.  
 
  Key Steps in Setting Up the Project:  
 1. Create a Django Project:  
@@ -44,3 +45,56 @@ This chapter introduces Django by guiding you through building a blog applicatio
 - Clicking a post redirects users to a detailed post view displaying full content.  
 
 This chapter will cover model creation, database synchronization, admin site setup, and defining views, templates, and URLs.
+
+ Summary: Applying Initial Database Migrations  
+
+Django applications require a database to store data. By default, Django is configured to use SQLite3, a lightweight database suitable for development.
+However, for production, databases like PostgreSQL, MySQL, or Oracle are recommended.  
+
+ Key Steps in Database Setup:  
+1. Database Configuration  
+   - Defined in settings.py under the DATABASES setting.  
+   - INSTALLED_APPS contains default Django applications that require database tables.  
+
+2. Applying Migrations  
+   - Migrations help set up database tables based on Django’s built-in models.  
+   - Run the following commands:  
+     cd mysite  
+     python manage.py migrate  
+       
+   - This creates the necessary tables for Django’s default apps (e.g., authentication, sessions, admin).  
+
+3. Understanding Migration Output  
+   - The migration process applies changes like creating tables and modifying fields.  
+   - Each applied migration (e.g., auth.0001_initial... OK) corresponds to a database change.  
+
+Further details on creating custom migrations will be covered later in the chapter.
+
+
+ Summary: Running the Django Development Server  
+
+Django provides a lightweight development server that allows you to quickly run your project without setting up a production server. The server automatically reloads when changes are detected, except for actions like adding new files, which require a manual restart.  
+
+ Starting the Development Server  
+Run the following command in the shell prompt:  
+
+python manage.py runserver
+  
+Expected output:  
+- The server starts checking for file changes.  
+- It performs system checks and confirms successful startup.  
+- Access the project at http://127.0.0.1:8000/ in a browser.  
+
+ Customizing the Server  
+- Run the server on a custom host and port:  
+  
+  python manage.py runserver 127.0.0.1:8001 --settings=mysite.settings
+    
+- This is useful for different environments requiring separate configuration files.  
+
+ Limitations and Production Deployment  
+- The development server is not suitable for production.  
+- For production, Django should run as:  
+  - WSGI application with Apache, Gunicorn, or uWSGI.  
+  - ASGI application with Daphne or Uvicorn.  
+- More deployment details are available in the Django documentation.
