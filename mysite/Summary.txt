@@ -98,3 +98,5 @@ Expected output:
   - WSGI application with Apache, Gunicorn, or uWSGI.  
   - ASGI application with Daphne or Uvicorn.  
 - More deployment details are available in the Django documentation.
+
+Just committing today for the culture, no much battery power to work today.
