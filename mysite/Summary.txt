@@ -110,7 +110,7 @@ The settings.py file in a Django project contains important configuration option
 
 ---
 
-✅ Key Project Settings:  
+Key Project Settings:  
 
 1. DEBUG:  
    - Boolean value to toggle debug mode.  
@@ -156,8 +156,7 @@ The settings.py file in a Django project contains important configuration option
 In Django, understanding the difference between projects and applications is essential!
 
 ---
-
-✅ Key Concepts:  
+Key Concepts:  
 
 1. Project:  
    - A Django installation with configuration settings.  
@@ -169,8 +168,7 @@ In Django, understanding the difference between projects and applications is ess
    - Can be reused across multiple Django projects.
 
 ---
-
-✅ Creating a Django Application:  
+Creating a Django Application:  
 
 Run this command from your project’s root directory:  
 
@@ -191,54 +189,52 @@ blog/
 └── views.py            ➡ Handles app logic (receives requests, returns responses).
 
 
----
 
-✅ What’s Next?  
+What’s Next?  
 - With the app structure ready, you’ll move on to creating data models for the blog!  
 
  Summary: Creating Django Blog Data Models  
 
-✅ What is a Django Model?  
+ What is a Django Model?  
 - A model is a Python class that defines the structure of a database table.  
 - It subclasses django.db.models.Model.  
 - Each attribute in the class represents a database field.  
 
-✅ Why Models Matter:  
+ Why Models Matter:  
 - Django models give you a powerful and easy-to-use API to query and manipulate your database.  
 - Django handles the SQL, so you work with Python objects instead of raw database queries.  
 
 ---
 
-✅ The Workflow:  
+F The Workflow:  
 
-1️⃣ Define models  
+ Define models  
 - Create your data models in models.py within your app (in this case, the blog app).  
 
-2️⃣ Generate migrations  
+ Generate migrations  
 - Run:  
   
   python manage.py makemigrations
     
 - This creates migration files that describe the model changes.
 
-3️⃣ Apply migrations  
+ Apply migrations  
 - Run:  
-  
   python manage.py migrate
     
 - This creates database tables based on the model definitions.
 
 ---
 
-✨ Once your models are set up, Django’s ORM (Object-Relational Mapper) lets you interact with your database like this:  
+ Once your models are set up, Django’s ORM (Object-Relational Mapper) lets you interact with your database like this:  
 python
 from blog.models import Post
 Post.objects.all()
 
 
-✨ Summary: Creating the Post Model in Django  
+ Summary: Creating the Post Model in Django  
 
-✅ Defining the Post model:  
+ Defining the Post model:  
 In your blog/models.py, create the Post model:  
 python
 from django.db import models  
@@ -254,41 +250,39 @@ class Post(models.Model):
 
 ---
 
-✅ Explanation of the fields:  
-1️⃣ title:  
+ Explanation of the fields:  
+ title:  
 - CharField → Translates to a VARCHAR column in SQL.  
 - max_length=250 → Limits the title to 250 characters.  
 
-2️⃣ slug:  
+ slug:  
 - SlugField → Contains letters, numbers, hyphens, and underscores.  
 - Great for creating SEO-friendly URLs.  
 
-3️⃣ body:  
+ body:  
 - TextField → Translates to a TEXT column in SQL.  
 - Stores the main content of the blog post.  
 
 ---
 
-✅ __str__() method:  
+ __str__() method:  
 - Returns a human-readable string representation of the Post object.  
 - Django uses this to display the object name in the admin panel.
 
 ---
 
-✅ Primary Key:  
+ Primary Key:  
 - Django automatically adds an auto-incrementing primary key (a BigAutoField) if you don’t define one.  
 - Alternatively, you can set primary_key=True on any field.
 
 ---
 
-✅ What’s next?  
-1️⃣ Create the migration file:  
+ What’s next?  
+ Create the migration file:  
 
 python manage.py makemigrations
 
-2️⃣ Apply the migration:  
+ Apply the migration:  
 
 python manage.py migrate
 
-
-🚀 Now your database will have a table for storing blog posts! Want to add more fields like timestamps or authors? Let’s expand it together!
