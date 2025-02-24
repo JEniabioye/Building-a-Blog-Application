@@ -283,6 +283,7 @@ class Post(models.Model):
 python manage.py makemigrations
 
  Apply the migration:  
+ 
 
 python manage.py migrate
 
