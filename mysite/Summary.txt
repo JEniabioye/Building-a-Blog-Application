@@ -287,4 +287,4 @@ python manage.py makemigrations
 
 python manage.py migrate
 
-## Nysc and faulty laptop trying to delay my progress but God pass them
+## Nysc and faulty laptop trying to delay my progress but God pass them.
